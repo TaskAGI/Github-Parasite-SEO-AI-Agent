@@ -45,18 +45,15 @@ Before deploying the GitHub Parasite SEO AI Agent, ensure you have:
 You'll need to connect the following services to your TaskAGI account:
 
 1. **Google Sheets** - For keyword management and tracking
-   - Setup guide: [Google Sheets Integration](https://taskagi.net/integrations/google-sheets)
    - OAuth 2.0 authentication required
    - Permissions needed: Read and write access to spreadsheets
 
 2. **Anthropic (Claude AI)** - For content generation
-   - Setup guide: [Anthropic Integration](https://taskagi.net/integrations/anthropic)
    - API key required from [console.anthropic.com](https://console.anthropic.com)
    - Model used: Claude Sonnet 4.5 (claude-sonnet-4-5-20250929)
    - Approximate cost: $0.01-0.02 per keyword (AI credits)
 
 3. **GitHub** - For repository creation and publishing
-   - Setup guide: [GitHub Integration](https://taskagi.net/integrations/github)
    - Personal Access Token (PAT) required with `repo` permissions
    - Organization account recommended (but personal accounts work too)
 
@@ -70,7 +67,7 @@ You'll need to connect the following services to your TaskAGI account:
 Get your GitHub Parasite SEO Agent running in under 5 minutes:
 
 ### Step 1: Access the Agent on TaskAGI
-1. Visit [https://taskagi.net/agents/github-parasite-seo-ai-agent](https://taskagi.net/agents/github-parasite-seo-ai-agent)
+1. Visit [https://taskagi.net/agent/github-parasite-seo-ai-agent](https://taskagi.net/agent/github-parasite-seo-ai-agent)
 2. Click **"Deploy Agent"** to add it to your account
 3. The agent template will be automatically imported into your workspace
 
@@ -132,7 +129,6 @@ Create a Google Sheets spreadsheet with the following structure:
    - Copy the spreadsheet URL
 
 4. **Connect to TaskAGI**
-   - Go to [https://taskagi.net/integrations/google-sheets](https://taskagi.net/integrations/google-sheets)
    - Click "Connect Integration"
    - Authorize TaskAGI to access your Google account
    - Grant read/write permissions to spreadsheets
@@ -167,7 +163,6 @@ The agent will ignore extra columns and only update the Status field.
    - Navigate to "Billing" and add payment method
 
 4. **Connect to TaskAGI**
-   - Go to [https://taskagi.net/integrations/anthropic](https://taskagi.net/integrations/anthropic)
    - Click "Connect Integration"
    - Paste your API key
    - Click "Save & Test Connection"
@@ -196,7 +191,6 @@ Claude Sonnet 4.5 pricing for this workflow:
    - Click "Generate token" and copy immediately
 
 3. **Connect to TaskAGI**
-   - Go to [https://taskagi.net/integrations/github](https://taskagi.net/integrations/github)
    - Click "Connect Integration"
    - Paste your Personal Access Token
    - Enter your GitHub username or organization name
@@ -572,13 +566,6 @@ Before running the full batch, test with a small dataset:
 | `OAuth token expired` | Google Sheets connection expired | Reconnect Google account in integrations |
 | `Rate limit exceeded` | Too many API calls too fast | Wait 60 seconds and retry |
 
-### Where to Get Help
-
-- **TaskAGI Support**: [support@taskagi.net](mailto:support@taskagi.net)
-- **Documentation**: [https://taskagi.net/docs](https://taskagi.net/docs)
-- **Community Discord**: [https://discord.gg/taskagi](https://discord.gg/taskagi)
-- **Integration Setup Guides**: [https://taskagi.net/integrations](https://taskagi.net/integrations)
-- **Status Page**: [https://status.taskagi.net](https://status.taskagi.net)
 
 ## FAQ
 
@@ -644,13 +631,6 @@ Yes! TaskAGI supports scheduled workflows. Set the agent to run daily, weekly, o
 
 ## Contributing & Support
 
-### Report Issues
-
-Found a bug or have a feature request? We'd love to hear from you:
-
-- **GitHub Issues**: [github.com/TaskAGI/parasite-seo-agent/issues](https://github.com/TaskAGI/parasite-seo-agent/issues)
-- **Email Support**: [support@taskagi.net](mailto:support@taskagi.net)
-- **Community Forum**: [community.taskagi.net](https://community.taskagi.net)
 
 ### Feature Requests
 
@@ -663,48 +643,3 @@ Have ideas for improvements? Popular requests include:
 
 Submit feature requests via GitHub Issues or vote on existing requests in our community forum.
 
-### Get Help
-
-- **Documentation**: [taskagi.net/docs](https://taskagi.net/docs)
-- **Integration Guides**: [taskagi.net/integrations](https://taskagi.net/integrations)
-- **Video Tutorials**: [youtube.com/@TaskAGI](https://youtube.com/@TaskAGI)
-- **Discord Community**: [discord.gg/taskagi](https://discord.gg/taskagi)
-- **Email**: [support@taskagi.net](mailto:support@taskagi.net)
-
-### Stay Updated
-
-- **Blog**: [taskagi.net/blog](https://taskagi.net/blog)
-- **Twitter**: [@TaskAGI](https://twitter.com/TaskAGI)
-- **LinkedIn**: [linkedin.com/company/taskagi](https://linkedin.com/company/taskagi)
-
-## License & Credits
-
-### License
-
-This agent template is released under the **MIT License**. You are free to use, modify, and distribute this workflow for personal or commercial purposes.
-
-### Powered By
-
-- **TaskAGI Platform**: [taskagi.net](https://taskagi.net) - No-code AI automation and workflow platform
-- **Claude AI**: [anthropic.com](https://anthropic.com) - Advanced language model by Anthropic
-- **GitHub API**: [docs.github.com/rest](https://docs.github.com/rest) - Repository hosting and version control
-- **Google Sheets API**: [developers.google.com/sheets](https://developers.google.com/sheets) - Cloud spreadsheet management
-
-### Author
-
-Created by the TaskAGI team with contributions from the SEO automation community.
-
-### Acknowledgments
-
-Special thanks to:
-- The Anthropic team for Claude AI
-- GitHub for providing free hosting and exceptional domain authority
-- The TaskAGI community for testing and feedback
-- SEO professionals who pioneered parasite SEO strategies
-
----
-
-**Ready to automate your SEO content at scale?**
-Deploy the GitHub Parasite SEO AI Agent now: [https://taskagi.net/agents/github-parasite-seo-ai-agent](https://taskagi.net/agents/github-parasite-seo-ai-agent)
-
-*Built with TaskAGI - The AI Automation Platform for Modern Marketers*
