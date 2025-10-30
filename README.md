@@ -39,8 +39,6 @@ Perfect for SEO agencies, affiliate marketers, content creators, and businesses 
 Before deploying the GitHub Parasite SEO AI Agent, ensure you have:
 
 ### TaskAGI Account
-- **Required Plan**: Personal ($49/month), Enterprise, or LTD
-- **Free Tier**: Limited to 1 agent (upgrade recommended for this workflow)
 - **Sign up**: [https://taskagi.net/register](https://taskagi.net/register)
 
 ### Required Integrations
