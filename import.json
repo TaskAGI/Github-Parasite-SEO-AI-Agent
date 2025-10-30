@@ -1,0 +1,187 @@
+{
+  "slug": "github-parasite-seo-ai-agent",
+  "user_id": 1,
+  "name": "Github Parasite SEO AI Agent",
+  "description": "",
+  "hero_tagline": null,
+  "hero_image_url": null,
+  "features_main_title": null,
+  "features_list": [],
+  "how_it_works_steps": [],
+  "demo_section_type": null,
+  "faq_data": [],
+  "testimonials_data": [],
+  "icon_url": "https://www.google.com/s2/favicons?domain=sheets.google.com&sz=32",
+  "category": null,
+  "tags": [],
+  "workflow_definition": {
+    "nodes": [
+      {
+        "id": "1",
+        "name": "Get Sheet from URL",
+        "type": "googlesheets",
+        "integration_instance_id": null,
+        "operation": "getSheetFromUrl",
+        "config": {
+          "integration_instance_id": null,
+          "sheet_url": "https://docs.google.com/spreadsheets/d/1vFPsA8qyL6wIgfcWkeG7gvHFauiFBM5WQ5_WvsctUJk/edit?pli=1&gid=160469469#gid=160469469",
+          "range": null
+        },
+        "position_x": 204,
+        "position_y": 271
+      },
+      {
+        "id": "2",
+        "name": "Loop",
+        "type": "core",
+        "integration_instance_id": null,
+        "operation": "loop",
+        "config": {
+          "mode": "until",
+          "items": "[[nodes.2567.rows]]",
+          "untilCondition": {
+            "leftValue": "loop.item.field",
+            "fieldPath": "[1]",
+            "operator": "contains",
+            "rightValue": "draft"
+          },
+          "outputMode": "last",
+          "maxIterations": "1000"
+        },
+        "position_x": 534,
+        "position_y": 269
+      },
+      {
+        "id": "3",
+        "name": "Generate Text (Claude)",
+        "type": "anthropic",
+        "integration_instance_id": null,
+        "operation": "createMessage",
+        "config": {
+          "integration_instance_id": null,
+          "prompt": "You are an expert SEO content writer, writing content for a Github repo. Generate a high-quality,        \n  SEO-optimized article of approximately 500 words on the topic:        \n[[nodes.2568.result.0]]\n\n  Requirements:\n  - Write engaging, natural content that prioritizes readability and\n   user value\n  - Include the primary keyword naturally 3-5 times throughout the\n  content\n  - Incorporate semantically related keywords and LSI (Latent\n  Semantic Indexing) terms\n  - Use clear heading structure with relevant subheadings\n  - Write in a conversational yet authoritative tone\n  - Include practical insights, examples, or actionable information\n  - Ensure content flows naturally - avoid keyword stuffing\n  - Target featured snippet optimization where appropriate (lists,\n  definitions, Q&A format)\n  - Use varied sentence structure and vocabulary for better\n  readability\n  - Include natural variations of the main keyword (plurals,\n  synonyms, related phrases)\n\n  SEO Best Practices:\n  - Front-load important keywords in the first 100 words\n  - Use topic clustering - mention related subtopics naturally\n  - Include entity-based keywords (people, places, things related to\n   the topic)\n  - Write with E-E-A-T in mind (Experience, Expertise,\n  Authoritativeness, Trustworthiness)\n  - Use semantic triples - connect related concepts naturally\n\n  Output Format:\n  Return ONLY the article content without any meta descriptions,\n  titles, or additional commentary. The content should be ready to\n  publish immediately.",
+          "model": "claude-sonnet-4-5-20250929",
+          "temperature": "0.7",
+          "max_tokens": "1000",
+          "system_prompt": null
+        },
+        "position_x": 881,
+        "position_y": 267
+      },
+      {
+        "id": "4",
+        "name": "Create Repository",
+        "type": "github",
+        "integration_instance_id": null,
+        "operation": "createRepository",
+        "config": {
+          "integration_instance_id": null,
+          "name": "[[nodes.2568.result.0]]",
+          "description": "[[nodes.2568.result.0]]",
+          "isPrivate": "false",
+          "organization": "TaskAGI",
+          "readmeContent": "[[nodes.2569.content]]",
+          "autoInit": "true"
+        },
+        "position_x": 1216,
+        "position_y": 267
+      },
+      {
+        "id": "5",
+        "name": "Search in Sheet",
+        "type": "googlesheets",
+        "integration_instance_id": null,
+        "operation": "searchInSheet",
+        "config": {
+          "integration_instance_id": null,
+          "sheet_url": null,
+          "search_value": "[[nodes.2568.result.0]]",
+          "search_range": null,
+          "exact_match": true
+        },
+        "position_x": 1216,
+        "position_y": 528
+      },
+      {
+        "id": "6",
+        "name": "Update Cell",
+        "type": "googlesheets",
+        "integration_instance_id": null,
+        "operation": "updateCell",
+        "config": {
+          "integration_instance_id": null,
+          "sheet_url": null,
+          "rowNumber": "[[nodes.2571.matches.0.row]]",
+          "columnLetter": "B",
+          "value": "PUBLISHED",
+          "sheetName": null
+        },
+        "position_x": 887,
+        "position_y": 531
+      }
+    ],
+    "connections": [
+      {
+        "source_node_id": "1",
+        "source_output": "rows",
+        "target_node_id": "2",
+        "target_input": null
+      },
+      {
+        "source_node_id": "2",
+        "source_output": "index",
+        "target_node_id": "3",
+        "target_input": null
+      },
+      {
+        "source_node_id": "3",
+        "source_output": "content",
+        "target_node_id": "4",
+        "target_input": null
+      },
+      {
+        "source_node_id": "4",
+        "source_output": "repository",
+        "target_node_id": "5",
+        "target_input": null
+      },
+      {
+        "source_node_id": "5",
+        "source_output": "found",
+        "target_node_id": "6",
+        "target_input": null
+      }
+    ]
+  },
+  "required_integrations": [
+    "googlesheets",
+    "anthropic",
+    "github"
+  ],
+  "is_premium": false,
+  "usage_count": 0,
+  "draft": true,
+  "version": "1.0.0",
+  "setup_guide": null,
+  "_export_metadata": {
+    "exported_at": "2025-10-30T17:53:04.274586Z",
+    "exported_by": "cem",
+    "source_agent_id": 1070,
+    "source_agent_name": "Github Parasite SEO AI Agent",
+    "node_id_mapping": {
+      "2567": "1",
+      "2568": "2",
+      "2569": "3",
+      "2570": "4",
+      "2571": "5",
+      "2572": "6"
+    },
+    "total_nodes": 6,
+    "total_connections": 5,
+    "integration_types": [
+      "googlesheets",
+      "anthropic",
+      "github"
+    ]
+  }
+}
