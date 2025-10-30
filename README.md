@@ -9,6 +9,8 @@
 
 Leverage GitHub's Domain Authority 90+ to rank your content on Google while automating the entire content creation and publishing workflow with Claude AI.
 
+![github parasite seo ai agent](https://taskagi.net/resources/images/agents/github-parasite-seo-ai-agent.png)
+
 ## Overview
 
 The **GitHub Parasite SEO AI Agent** is a fully automated TaskAGI workflow that revolutionizes how SEO professionals and digital marketers execute parasite SEO strategies. By combining the power of GitHub's exceptional domain authority with Claude AI's advanced content generation capabilities, this agent eliminates the manual work of creating and publishing SEO-optimized content at scale.
